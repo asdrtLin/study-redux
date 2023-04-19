@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Button } from "antd";
 
 const mapState = (state: any) => {
   return { value: state.value };
@@ -26,6 +27,7 @@ function Home(props: any) {
       <button onClick={add}>+</button>
       <button onClick={sub}>-</button>
       <button onClick={() => addT(2)}>+2</button>
+      <Button>按钮</Button>
     </div>
   );
 }

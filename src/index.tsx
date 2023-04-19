@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { createStore } from "redux";
+import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
 import router from "./router";
 import "./index.css";
@@ -51,6 +52,14 @@ store.subscribe(() => console.log(store.getState()));
 
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#00b96b",
+        },
+      }}
+    >
+      <RouterProvider router={router} />
+    </ConfigProvider>
   </Provider>
 );
