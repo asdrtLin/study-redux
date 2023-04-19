@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -45,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "6.0.0",
+    "craco-less": "^2.0.0",
+    "craco-sass-resources-loader": "^1.1.0",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.0",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.0"
   }
 }
