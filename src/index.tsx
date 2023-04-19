@@ -6,14 +6,41 @@ import { Provider } from "react-redux";
 import router from "./router";
 import "./index.css";
 
-function counterReducer(state = { value: 0, loading: false }, action: any) {
+function counterReducer(
+  oldState = {
+    value: 0,
+    loading: false,
+    todoList: [{ value: "123", completed: false, id: 1 }],
+  },
+  action: any
+) {
   switch (action.type) {
     case "add":
-      return { ...state, value: state.value + 1 };
+      const newState1 = { ...oldState, value: oldState.value + 1 };
+      return newState1;
+    case "addT":
+      const newState3 = { ...oldState, value: oldState.value + action.payload };
+      return newState3;
     case "sub":
-      return { ...state, value: state.value - 1 };
+      const newState2 = { ...oldState, value: oldState.value - 1 };
+      return newState2;
+    case "addTodo":
+      return { ...oldState, todoList: [...oldState.todoList, action.payload] };
+    case "deleteTodo":
+      const newTodo = oldState.todoList?.filter(
+        (item) => item.id !== action.payload?.id
+      );
+      return { ...oldState, todoList: newTodo };
+    case "editTodo":
+      const newTodoEdit = oldState.todoList?.map((item) => {
+        if (item.id === action.payload?.id) {
+          item = action.payload;
+        }
+        return item;
+      });
+      return { ...oldState, todoList: newTodoEdit };
     default:
-      return state;
+      return oldState;
   }
 }
 export const store = createStore(counterReducer);
